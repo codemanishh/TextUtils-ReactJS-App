@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 
-
-
 export default function TextForm(props) {
 
+    const copytoclipboard=()=>{
+        var text=document.getElementById("clpid");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
     const handleClr = () => {
         if (text !== '') {
             let cleartext = " ";
@@ -49,24 +52,25 @@ export default function TextForm(props) {
     return (
         <>
             <div className='container'>
-                <h1>Enter the Text to analyze</h1>
+                <h1 className={`text-${props.mode==='dark'?'light':'black'}`}>Enter the Text to analyze</h1>
                 <div className="form-floating">
-                    <textarea className="form-control" placeholder="Leave a comment here" cols="30" rows="10"  value={text} onChange={handleOC} ></textarea>
+                    <textarea id='clpid' className={`form-control bg-${props.mode==='light'?'light':'dark-subtle'}`} placeholder="Leave a comment here" cols="30" rows="10"  value={text} onChange={handleOC} ></textarea>
                     <label htmlFor="hi hi hi">enter the text here</label>
                 </div>
                 <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to upperCase</button>
                 <button className="btn btn-primary mx-2  my-2" onClick={handleLoClick}>Convert to lowercase</button>
                 <button className="btn btn-primary mx-2 my-2" onClick={handleClr}>ClearArea</button>
                 <button className="btn btn-primary mx-2 my-2" onClick={getEmails}>Gmail Finder</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={copytoclipboard}>Copy On Clipboard</button>
             </div>
             <div className="container my-4"  >
-                <h1>Here you have the details about your data</h1>
-                <p>The Number of words in about is {(text.split(" ").length - 1)} and {text.length} character</p>
-                <p>{0.008 * (text.split(" ").length - 1)} Minute time to Read</p>
+                <h1 className={`text-${props.mode==='dark'?'light':'black'}`}>Here you have the details about your data</h1>
+                <p className={`text-${props.mode==='dark'?'light':'black'}`}>The Number of words in about is {(text.split(" ").length - 1)} and {text.length} character</p>
+                <p className={`text-${props.mode==='dark'?'light':'black'}`}>{0.008 * (text.split(" ").length - 1)} Minute time to Read</p>
             </div>
             <div className="container my-4">
-                <h1>All Gmail Id Found In the Text</h1>
-                <textarea className='form-control' onChange={handleOn} id="text-output" type="text" value={text2} readOnly  cols="30" rows="4">
+                <h1 className={`text-${props.mode==='dark'?'light':'black'}`}>All Gmail Id Found In the Text</h1>
+                <textarea className={`form-control bg-${props.mode==='light'?'light':'dark-subtle'}`} onChange={handleOn} id="text-output" type="text" value={text2} readOnly  cols="30" rows="4">
                 </textarea>
             </div>
         </>
