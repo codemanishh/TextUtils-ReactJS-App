@@ -19,27 +19,50 @@ function App() {
   }
 
   const toggleMode=()=>{
-    if(mode==='light' || mode==='danger'){
+    if(mode==='light'){
     setMode('dark');
       document.body.style.backgroundColor='grey';
       showAlert("Dark mode is enabled", "success")
     }
-     else if(mode==='light' || mode==='dark'){
-      document.body.style.backgroundColor='red';
-     }
-    else if(mode==='danger' || mode==='dark'){
-      document.body.style.backgroundColor='white';
+    else{
       setMode('light');
-           document.body.style.backgroundColor='light';
-      showAlert("light mode is enabled", "success")
+        document.body.style.backgroundColor='white';
+        showAlert("Dark mode is enabled", "success")
+      }
+    
+  }
+  const toggleMode1=()=>{
+    if(mode==='light'){
+    setMode('danger');
+      document.body.style.backgroundColor='red';
+      showAlert("Dark mode is enabled", "success")
     }
+    else{
+      setMode('light');
+        document.body.style.backgroundColor='white';
+        showAlert("Red mode is enabled", "success")
+      }
+    
+  }
+  const toggleMode2=()=>{
+    if(mode==='light'){
+    setMode('success');
+      document.body.style.backgroundColor='green';
+      showAlert("green mode is enabled", "success")
+    }
+    else{
+      setMode('light');
+        document.body.style.backgroundColor='white';
+        showAlert("Dark mode is enabled", "success")
+      }
+    
   }
   return (
     <>
-   <Navbar title="REACT.JS" mode={mode} toggleMode={toggleMode}/>
+   <Navbar title="REACT.JS" mode={mode} toggleMode={toggleMode} toggleMode1={toggleMode1}  toggleMode2={toggleMode2}/>
    <Alert alert={alert}/>
    <div className="container my-4" >
-   <TextForm heading="Enter your text here" mode={mode} toggleMode={toggleMode}/>
+   <TextForm heading="Enter your text here" mode={mode} toggleMode={toggleMode} toggleMode1={toggleMode1}  toggleMode2={toggleMode2}/>
    <About/>
    </div>
     </>

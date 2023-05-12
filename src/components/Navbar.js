@@ -30,14 +30,14 @@ export default function Navbar(props) {
                 </div>
 
 
-                {/* <div className={`form-check text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"  onClick={props.toggleMode}/>
+                <div className={`form-check text-${props.mode === 'success' ? 'light' : 'success'}`}>
+                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"  onClick={props.toggleMode2}/>
                         <label className="form-check-label" for="flexRadioDefault2">
                             green
                         </label>
-                </div> */}
+                </div> 
                 <div className={`form-check text-${props.mode === 'danger' ? 'light' : 'danger'}`}>
-                    <input style={{backgroundColor:'red'}} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onClick={props.toggleMode}/>
+                    <input style={{backgroundColor:'red'}} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onClick={props.toggleMode1}/>
                         <label className="form-check-label" for="flexRadioDefault2">
                             red
                         </label>
