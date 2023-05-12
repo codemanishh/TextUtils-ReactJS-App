@@ -15,29 +15,30 @@ function App() {
     })
     setTimeout(() => {
       setAlert(null)
-    }, 7000);
+    }, 1000);
   }
 
   const toggleMode=()=>{
-    if(mode==='light'){
+    if(mode==='light' || mode==='danger'){
     setMode('dark');
       document.body.style.backgroundColor='grey';
       showAlert("Dark mode is enabled", "success")
     }
-    else{
+     else if(mode==='light' || mode==='dark'){
+      document.body.style.backgroundColor='red';
+     }
+    else if(mode==='danger' || mode==='dark'){
       document.body.style.backgroundColor='white';
       setMode('light');
-           document.body.style.backgroundColor='grey';
+           document.body.style.backgroundColor='light';
       showAlert("light mode is enabled", "success")
-
     }
-
   }
   return (
     <>
    <Navbar title="REACT.JS" mode={mode} toggleMode={toggleMode}/>
    <Alert alert={alert}/>
-   <div className="container my-4">
+   <div className="container my-4" >
    <TextForm heading="Enter your text here" mode={mode} toggleMode={toggleMode}/>
    <About/>
    </div>

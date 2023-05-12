@@ -21,10 +21,28 @@ export default function Navbar(props) {
 
                     </div>
                 </div>
-                <div className={`form-check form-switch text-${props.mode==='dark'?'light':'dark'}`}>
-                    <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                        <label className="form-check-label " style={   { width:'191px'}} htmlFor="flexSwitchCheckDefault">Enable-DarkMode</label>
+                {/* // new edit */}
+                <div className={`form-check text-${props.mode === 'dark' ? 'light' : 'dark'}`} >
+                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onClick={props.toggleMode}/>
+                        <label  className="form-check-label" for="flexRadioDefault1">
+                            dark
+                        </label>
                 </div>
+
+
+                {/* <div className={`form-check text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
+                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"  onClick={props.toggleMode}/>
+                        <label className="form-check-label" for="flexRadioDefault2">
+                            green
+                        </label>
+                </div> */}
+                <div className={`form-check text-${props.mode === 'danger' ? 'light' : 'danger'}`}>
+                    <input style={{backgroundColor:'red'}} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onClick={props.toggleMode}/>
+                        <label className="form-check-label" for="flexRadioDefault2">
+                            red
+                        </label>
+                </div>
+                {/* ///new edit */}
             </nav>
 
         </div>
