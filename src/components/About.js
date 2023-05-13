@@ -6,26 +6,7 @@ const [mystyle,setMyStyle]=useState({
     color:'black',
     backgroundColor:'white',
 })
-const [btntext,setBtnText]=useState("Enable Dark Mode")
-const toggleSwitch=()=>{
-    if(mystyle.color==='black'){
-        setMyStyle({
-            color:'white',
-            backgroundColor:'black',
-        })
-        setBtnText("enable light mode")
-    }
-    else{
-        setMyStyle({
-            color:'black',
-            backgroundColor:'white'
-        })
-        setBtnText("enable dark mode")
-    }
-
-}
-
-    return (
+ return (
         <div>
             <div className="accordion" id="accordionExample">
                 <div className="accordion-item" style={mystyle}>
@@ -65,7 +46,7 @@ const toggleSwitch=()=>{
                     </div>
                 </div>
             </div>
-          <div type="button" className="btn btn-primary my-4" onClick={toggleSwitch}>{btntext}</div>
+          <div type="button" className="btn btn-primary my-4" onClick={props.toggleSwitch}>SAVE</div>
 
         </div>
     )

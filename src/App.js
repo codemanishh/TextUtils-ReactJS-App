@@ -4,7 +4,19 @@ import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert'
+import { Outlet } from "react-router-dom";
+
+// import { createRoot } from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
+
+
 function App() {
+  
   const [alert,setAlert] = useState(null)
   const [mode,setMode]=useState('light')
 
@@ -23,11 +35,20 @@ function App() {
     setMode('dark');
       document.body.style.backgroundColor='grey';
       showAlert("Dark mode is enabled", "success")
+      // document.title="dark mode"
+    // setInterval(()=>{
+    //   document.title="text util is manzing";
+    // },2000)
+    // setInterval(()=>{
+    //   document.title="download now";
+    // },1500)
     }
     else{
       setMode('light');
         document.body.style.backgroundColor='white';
-        showAlert("Dark mode is enabled", "success")
+        showAlert("light mode is enabled", "success")
+      document.title="light mode"     /// this is good concept to learn 
+
       }
     
   }
@@ -40,7 +61,7 @@ function App() {
     else{
       setMode('light');
         document.body.style.backgroundColor='white';
-        showAlert("Red mode is enabled", "success")
+        showAlert("light mode is enabled", "success")
       }
     
   }
@@ -53,7 +74,7 @@ function App() {
     else{
       setMode('light');
         document.body.style.backgroundColor='white';
-        showAlert("Dark mode is enabled", "success")
+        showAlert("light mode is enabled", "success")
       }
     
   }
@@ -62,8 +83,8 @@ function App() {
    <Navbar title="REACT.JS" mode={mode} toggleMode={toggleMode} toggleMode1={toggleMode1}  toggleMode2={toggleMode2}/>
    <Alert alert={alert}/>
    <div className="container my-4" >
-   <TextForm heading="Enter your text here" mode={mode} toggleMode={toggleMode} toggleMode1={toggleMode1}  toggleMode2={toggleMode2}/>
-   <About/>
+   <Outlet />
+
    </div>
     </>
   );
