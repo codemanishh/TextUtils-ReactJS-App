@@ -65,7 +65,7 @@ export default function TextForm(props) {
             </div>
             <div className="container my-4"  >
                 <h1 className={`text-${props.mode==='dark'?'light':'black'}`}>Here you have the details about your data</h1>
-                <p className={`text-${props.mode==='dark'?'light':'black'}`}>The Number of words in about is {(text.split(" ").length - 1)} and {text.length} character</p>
+                <p className={`text-${props.mode==='dark'?'light':'black'}`}>The Number of words in about is {(text.split(" ").filter((ele)=>{ return ele.length!=0}).length - 1)} and {text.length} character</p>
                 <p className={`text-${props.mode==='dark'?'light':'black'}`}>{0.008 * (text.split(" ").length - 1)} Minute time to Read</p>
             </div>
             <div className="container my-4">
