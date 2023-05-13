@@ -84,7 +84,6 @@ function App() {
    <Alert alert={alert}/>
    <div className="container my-4" >
    <Outlet />
-
    </div>
     </>
   );
